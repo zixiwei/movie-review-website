@@ -1,0 +1,38 @@
+{
+  // General
+  "extensions.ignoreRecommendations": true,
+  "debug.toolBarLocation": "docked",
+
+  // Java
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.sharedIndexes.enabled": "on",
+  "java.saveActions.organizeImports": true,
+  "java.server.launchMode": "Standard",
+  //"[java]": {
+  //  "editor.defaultFormatter": "redhat.java"
+  //},
+
+  // Thunder Client
+  "thunder-client.saveToWorkspace": true,
+  "thunder-client.sidebar.defaultTab": "Collections",
+
+  // Prettier
+  //"editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript][javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+
+  // JavaScript
+  "javascript.preferences.importModuleSpecifier": "project-relative",
+  "javascript.suggest.paths": false,
+
+  // Emmet for JSX
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+
+  // Resource monitor
+  "resmon.show.cpufreq": false
+}

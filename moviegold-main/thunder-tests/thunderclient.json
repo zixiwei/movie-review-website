@@ -1,0 +1,49 @@
+[
+  {
+    "_id": "1e59cdd4-1d33-4939-9a0e-9d5ad247d5c2",
+    "colId": "36c4b9d5-c878-4a84-91ac-6b472fe7d3d6",
+    "containerId": "",
+    "name": "get all movies",
+    "url": "localhost:8080/api/v1/movies",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-02-23T22:48:46.082Z",
+    "modified": "2023-02-23T22:50:36.133Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "c19c6540-b0e0-4a89-9094-00764e120cb2",
+    "colId": "36c4b9d5-c878-4a84-91ac-6b472fe7d3d6",
+    "containerId": "",
+    "name": "create a new review",
+    "url": "localhost:8080/api/v1/reviews",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2023-02-23T22:55:35.683Z",
+    "modified": "2023-02-23T22:55:35.683Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"reviewBody\": \"I really enjoyed the movie with my family.\",\n  \"imdbId\": \"tt1630029\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "f2c24057-980c-466f-b96c-8bb61a3ddbb3",
+    "colId": "36c4b9d5-c878-4a84-91ac-6b472fe7d3d6",
+    "containerId": "",
+    "name": "get a single movie",
+    "url": "localhost:8080/api/v1/movies/tt1630029",
+    "method": "GET",
+    "sortNum": 25000,
+    "created": "2023-02-23T22:55:52.086Z",
+    "modified": "2023-02-23T22:56:16.353Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]

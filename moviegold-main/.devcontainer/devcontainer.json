@@ -1,0 +1,112 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+  "name": "Custom",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "workspace",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "shutdownAction": "stopCompose",
+  "waitFor": "postStartCommand",
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "dockerDashComposeVersion": "v2"
+    }
+  },
+  //"features": {
+  //	"ghcr.io/devcontainers/features/java:1": {
+  //		"version": "17",
+  //		"installMaven": true
+  //	}
+  //},
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // This can be used to network with other containers or with the host.
+  "forwardPorts": [3000, 8080],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "java -version",
+
+  // Fix git "dubious ownership" error (only when using VirtioFS?)
+  // "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Set *default* container specific settings.json values on container create.
+      "settings": {
+        // Java
+        // Workaround for vscode-java extension not hornoring JAVA_HOME if the extension's built-in Java version happened to be the same
+        //"java.configuration.runtimes": [
+        //	{
+        //		"name": "JavaSE-17", // Must match the version of the path below
+        //		"path": "/usr/lib/jvm/java-17" // Hardcoded for now (TODO)
+        //	}
+        //]
+        "java.jdt.ls.java.home": "/usr/lib/jvm/java-17" // For both the Java language server and the default project JDK
+        //"spring-boot.ls.java.home": "/usr/lib/jvm/java-17" // For Spring Boot language server
+      },
+      "extensions": [
+        // Java
+        "vscjava.vscode-java-pack", // Extension Pack for Java
+        //"redhat.java", // Language Support for Java by Red Hat
+        //"vscjava.vscode-java-dependency", // Project Manager for Java
+        //"vscjava.vscode-java-debug", // Debugger for Java
+        //"vscjava.vscode-java-test", // Test Runner for Java
+        //"vscjava.vscode-maven", // Maven for Java
+        //"redhat.fabric8-analytics", // Dependency Analytics
+        //"vmware.vscode-boot-dev-pack", // Spring Boot Extension Pack (Too much resource usage)
+
+        // JavaScript
+        "dbaeumer.vscode-eslint", // ESLint
+        "dsznajder.es7-react-js-snippets", // ES7+ React/Redux/React-Native snippets
+        "orta.vscode-jest", // Jest
+
+        // MongoDB
+        "mongodb.mongodb-vscode", // MongoDB for VS Code
+
+        // Docker
+        "ms-azuretools.vscode-docker", // Docker
+
+        // REST API testing
+        "rangav.vscode-thunder-client", // Thunder Client
+
+        // Code Formatter
+        "esbenp.prettier-vscode", // Prettier
+        "editorconfig.editorconfig", // EditorConfig for VS Code
+
+        // Intellisense
+        "christian-kohler.path-intellisense", // Path Intellisense
+        //"visualstudioexptteam.vscodeintellic", // IntelliCode
+        //"visualstudioexptteam.vscodeintellicode-completions", // IntelliCode Completions
+
+        // Live Preview
+        //"ms-vscode.live-server",
+
+        // Git
+        // "eamodio.gitlens", // GitLens
+        "mhutchie.git-graph", // Git Graph
+        "donjayamanne.githistory", // Git History
+
+        // Code Spell Checker
+        "streetsidesoftware.code-spell-checker",
+
+        // Resource Monitoring
+        "mutantdino.resourcemonitor" // Resource Monitor
+      ]
+    }
+  },
+
+  // More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "vscode",
+
+  // Additional mounts
+  "mounts": [
+    //"source=vscode-extensions,target=/home/vscode/.vscode-server/extensions,type=volume"
+  ],
+  "remoteEnv": {
+    "TZ": "${localEnv:TZ:US/Pacific}"
+  }
+}

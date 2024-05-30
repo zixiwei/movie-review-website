@@ -1,0 +1,28 @@
+services:
+  workspace:
+    build: .
+    volumes:
+      - ../..:/workspaces:delegated
+    environment:
+      - MONGO_HOST=db
+      - MONGO_USERNAME=root
+      - MONGO_PASSWORD=example
+      - MONGO_DATABASE=movies-api-db
+
+  db:
+    image: mongo:6
+    volumes:
+      - mongodb-data-db:/data/db
+      - mongodb-data-configdb:/data/configdb
+      - ../db:/docker-entrypoint-initdb.d # Seeding the database
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+      - MONGO_INITDB_DATABASE=movies-api-db
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+
+volumes:
+  mongodb-data-db:
+  mongodb-data-configdb:
